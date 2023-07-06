@@ -11,12 +11,12 @@ const post = function () {
   refresh();
 };
 
-$("#posts").on("click", ".delete", function () {
+$("#posts").on("click", ".delete", () => {
   tweeter.removePost($(this).closest(".post").data("id"));
   refresh();
 });
 
-$("#posts").on("click", ".delete-comment", function () {
+$("#posts").on("click", $(".delete-comment"), function () {
   tweeter.removeComment(
     $(this).closest(".post").data("id"),
     $(this).data("id")

@@ -45,7 +45,6 @@ const Tweeter = function () {
   };
 
   const _generateId = (counterType) => {
-    counterType.counter++;
     return counterType.prefix + counterType.counter;
   };
 
@@ -54,7 +53,7 @@ const Tweeter = function () {
   const getPosts = () => JSON.parse(JSON.stringify(_posts));
 
   const addPost = (postText) => {
-    if (_postIdCounter.count === 0) _initCounters();
+    if ((_postIdCounter.count = 0)) _initCounters();
     _posts.push({
       id: _generateId(_postIdCounter),
       text: postText,

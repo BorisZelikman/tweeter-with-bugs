@@ -7,7 +7,7 @@ const Renderer = function () {
       $("<div>", { id: "post", class: "commentEditor", text: "submit" })
     );
     $(btnComment).parent().append(commentEditor);
-    $("#posts").find("input").focus();
+    $(".posts").find("input").focus();
   };
 
   const _postAndButtonDiv = (post) => {
@@ -24,13 +24,13 @@ const Renderer = function () {
     let deleteBtn = $("<div>", { class: "delete-comment", text: "x" });
     deleteBtn.attr("data-id", comment.id);
 
-    return outerDiv.append(textDiv).append(deleteBtn);
+    return outerDiv.append(deleteBtn);
   };
 
   const clear = () => $("#posts").empty();
 
   const renderPosts = function (posts) {
-    for (const post of posts) {
+    for (const post in posts) {
       const postDiv = $("<div>", { class: "post" });
       postDiv.attr("data-id", post.id);
 
